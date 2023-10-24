@@ -13,3 +13,12 @@ pausa_longa = 20
 repticoes = 0
 timer = None
 
+# Configurando Janela ---------------------
+janela = Tk()
+janela.title('Pomodoro')
+janela.config(padx=100, pady=50, bg=amarelo)
+label_titulo = Label(text='TIMER', fg=verde, bg=amarelo, font=(fonte, 50))
+label_titulo.grid(column=1, row=0)
+
+
+janela.mainloop()
