@@ -27,5 +27,10 @@ tela.create_image(100, 112, image=tomate)
 timer_text = tela.create_text(100, 130, text='00:00', fill='white', font=(fonte, 35, 'bold'))
 tela.grid(column=1, row=1)
 
+# Botoes ----------------------------------------
+botao_iniciar = Button(text='Iniciar', highlightthickness=0, command=iniciar_timer)
+botao_iniciar.grid(column=0, row=2)
+botao_reiniciar = Button(text='Reiniciar', highlightthickness=0, command=reiniciar_timer)
+botao_reiniciar.grid(column=2, row=2)
 
 janela.mainloop()
