@@ -53,6 +53,23 @@ def abrir_config():
     config = Tk()
     config.title('Configurações')
     config.config(padx=100, pady=50, bg=amarelo)
+    
+    # Labels --------------------------------------------
+    label_min_trabalho = Label(config,text='Min. trabalho', fg=vermelho, bg=amarelo)
+    label_min_trabalho.grid(column=0, row=0)
+    minutos_trabalho_entry = Entry(config, width=5)
+    minutos_trabalho_entry.grid(column=1, row=0)
+    
+    label_pausa_pequena = Label(config,text='Pausa pequena', fg=vermelho, bg=amarelo)
+    label_pausa_pequena.grid(column=0, row=1)
+    pausa_pequena_entry = Entry(config, width=5)
+    pausa_pequena_entry.grid(column=1, row=1)
+    
+    label_pausa_longa = Label(config,text='Pausa pequena', fg=vermelho, bg=amarelo)
+    label_pausa_longa.grid(column=0, row=2)
+    pausa_longa_entry = Entry(config, width=5)
+    pausa_longa_entry.grid(column=1, row=2)
+
     config.mainloop()
 
 # Variaveis ------------------------------
