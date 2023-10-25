@@ -37,11 +37,16 @@ def iniciar_timer():
         label_titulo.config(text='Pausa', fg=rosa)
     else:
         contagem(min_trabalho)
-        label_titulo.config(text='Trabalhando', fg=verde)
+        label_titulo.config(text='Trabalhe', fg=verde)
 
 def reiniciar_timer():
-    pass
+    janela.after_cancel(timer)
+    tela.itemconfig(timer_texto, text='00:00')
     
+    label_titulo.config(text='Timer')
+    marca_visto.config(text='')
+    global repticoes
+    repticoes = 0   
 
 # Variaveis ------------------------------
 rosa = '#e2979c'
