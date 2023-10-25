@@ -1,6 +1,28 @@
 from tkinter import *
 import math
 
+def contagem(contador):
+    contagem_min = math.floor(contador / 60)
+    contagem_seg = contador % 60
+    
+    if contagem_seg < 10:
+        contagem_seg = f"0{contagem_seg}"
+    tela.itemconfig(timer_texto, text=f'{contagem_min}:{contagem_seg}')
+    
+    if contador > 0:
+        global timer
+        timer = janela.after(1000, contagem, contador - 1)
+    else:
+        iniciar_timer()
+        marcacao = ''
+        sessoes_trabalho = math.floor(repticoes/2)
+        for _ in range(sessoes_trabalho):
+            marcacao += '✓'
+        marca_visto.config(text=marcacao)
+
+def iniciar_timer():
+    pass
+
 # Variaveis ------------------------------
 rosa = '#e2979c'
 vermelho = '#e7305b'
@@ -24,7 +46,7 @@ label_titulo.grid(column=1, row=0)
 tela = Canvas(width=200, height=224, bg=amarelo, highlightthickness=0)
 tomate = PhotoImage(file='tomate.png')
 tela.create_image(100, 112, image=tomate)
-timer_text = tela.create_text(100, 130, text='00:00', fill='white', font=(fonte, 35, 'bold'))
+timer_texto = tela.create_text(100, 130, text='00:00', fill='white', font=(fonte, 35, 'bold'))
 tela.grid(column=1, row=1)
 
 # Botoes ----------------------------------------
@@ -32,5 +54,8 @@ botao_iniciar = Button(text='Iniciar', highlightthickness=0, command=iniciar_tim
 botao_iniciar.grid(column=0, row=2)
 botao_reiniciar = Button(text='Reiniciar', highlightthickness=0, command=reiniciar_timer)
 botao_reiniciar.grid(column=2, row=2)
+marca_visto = Label(text='✓', fg=verde, bg=amarelo)
+marca_visto.grid(column=1, row=3)
+
 
 janela.mainloop()
