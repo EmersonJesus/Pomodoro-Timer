@@ -20,5 +20,12 @@ janela.config(padx=100, pady=50, bg=amarelo)
 label_titulo = Label(text='TIMER', fg=verde, bg=amarelo, font=(fonte, 50))
 label_titulo.grid(column=1, row=0)
 
+# Configurando Fundo -------------------------
+tela = Canvas(width=200, height=224, bg=amarelo, highlightthickness=0)
+tomate = PhotoImage(file='tomate.png')
+tela.create_image(100, 112, image=tomate)
+timer_text = tela.create_text(100, 130, text='00:00', fill='white', font=(fonte, 35, 'bold'))
+tela.grid(column=1, row=1)
+
 
 janela.mainloop()
