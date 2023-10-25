@@ -48,6 +48,13 @@ def reiniciar_timer():
     global repticoes
     repticoes = 0   
 
+def abrir_config():
+    # Janela de Configurações --------------------------
+    config = Tk()
+    config.title('Configurações')
+    config.config(padx=100, pady=50, bg=amarelo)
+    config.mainloop()
+
 # Variaveis ------------------------------
 rosa = '#e2979c'
 vermelho = '#e7305b'
@@ -81,6 +88,7 @@ botao_reiniciar = Button(text='Reiniciar', highlightthickness=0, command=reinici
 botao_reiniciar.grid(column=2, row=2)
 marca_visto = Label(text='✓', fg=verde, bg=amarelo)
 marca_visto.grid(column=1, row=3)
-
+botao_config = Button(text='Configurações', highlightthickness=0, command=abrir_config)
+botao_config.grid(column=1, row=2)
 
 janela.mainloop()
