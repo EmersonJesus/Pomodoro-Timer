@@ -23,9 +23,9 @@ def contagem(contador):
 def iniciar_timer():
     global repticoes
     repticoes += 1
-    min_trabalho = minutos_trabalho * 60
-    pausa_pequena_seg = pausa_pequena * 60
-    pausa_longa_seg = pausa_longa * 60
+    min_trabalho = int(minutos_trabalho * 60)
+    pausa_pequena_seg = int(pausa_pequena * 60)
+    pausa_longa_seg = int(pausa_longa * 60)
     
     if repticoes % 8 == 0:
         contagem(pausa_longa_seg)
@@ -48,29 +48,51 @@ def reiniciar_timer():
     global repticoes
     repticoes = 0   
 
+def salvar_config():
+    global minutos_trabalho, pausa_pequena, pausa_longa, config
+    try:
+        minutos_trabalho = float(minutos_trabalho_entry.get())
+        pausa_pequena = float(pausa_pequena_entry.get())
+        pausa_longa = float(pausa_longa_entry.get())
+        config.destroy()  # Fecha a janela de configurações após salvar as configurações
+    except:
+        erro = Tk()
+        erro.title('Erro de entrada')
+        erro.config(padx=100, pady=50, bg=amarelo)
+        mensagem = Label(erro, text="Digite apenas numeros", bg=amarelo, fg=vermelho)
+        mensagem.pack()
+        erro.mainloop()
+        return False
+
 def abrir_config():
+    global minutos_trabalho_entry, pausa_pequena_entry, pausa_longa_entry, config
     # Janela de Configurações --------------------------
     config = Tk()
     config.title('Configurações')
     config.config(padx=100, pady=50, bg=amarelo)
     
     # Labels --------------------------------------------
-    label_min_trabalho = Label(config,text='Min. trabalho', fg=vermelho, bg=amarelo)
+    label_min_trabalho = Label(config, text='Minutos de trabalho', fg=vermelho, bg=amarelo)
     label_min_trabalho.grid(column=0, row=0)
     minutos_trabalho_entry = Entry(config, width=5)
     minutos_trabalho_entry.grid(column=1, row=0)
     
-    label_pausa_pequena = Label(config,text='Pausa pequena', fg=vermelho, bg=amarelo)
+    label_pausa_pequena = Label(config, text='Minutos da pausa pequena', fg=vermelho, bg=amarelo)
     label_pausa_pequena.grid(column=0, row=1)
     pausa_pequena_entry = Entry(config, width=5)
     pausa_pequena_entry.grid(column=1, row=1)
     
-    label_pausa_longa = Label(config,text='Pausa pequena', fg=vermelho, bg=amarelo)
+    label_pausa_longa = Label(config, text='Minutos da pausa longa', fg=vermelho, bg=amarelo)
     label_pausa_longa.grid(column=0, row=2)
     pausa_longa_entry = Entry(config, width=5)
     pausa_longa_entry.grid(column=1, row=2)
-
+    
+    # Botão salvar -----------------------------------------
+    salvar = Button(config, text='Salvar', highlightthickness=0, command=salvar_config)
+    salvar.grid(column=1, row=5)
+    
     config.mainloop()
+
 
 # Variaveis ------------------------------
 rosa = '#e2979c'
@@ -82,7 +104,7 @@ minutos_trabalho = 25
 pausa_pequena = 5
 pausa_longa = 20
 repticoes = 0
-timer = None
+timer = config = None
 
 # Configurando Janela ---------------------
 janela = Tk()
