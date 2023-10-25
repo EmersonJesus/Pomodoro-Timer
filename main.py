@@ -21,7 +21,27 @@ def contagem(contador):
         marca_visto.config(text=marcacao)
 
 def iniciar_timer():
+    global repticoes
+    repticoes += 1
+    min_trabalho = minutos_trabalho * 60
+    pausa_pequena_seg = pausa_pequena * 60
+    pausa_longa_seg = pausa_longa * 60
+    
+    if repticoes % 8 == 0:
+        contagem(pausa_longa_seg)
+    
+        label_titulo.config(text='Pausa', fg=vermelho)
+    elif repticoes % 2 == 0:
+        contagem(pausa_pequena_seg)
+        
+        label_titulo.config(text='Pausa', fg=rosa)
+    else:
+        contagem(min_trabalho)
+        label_titulo.config(text='Trabalhando', fg=verde)
+
+def reiniciar_timer():
     pass
+    
 
 # Variaveis ------------------------------
 rosa = '#e2979c'
