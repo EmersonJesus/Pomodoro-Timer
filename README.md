@@ -8,6 +8,10 @@ Funcionalidades Principais
     Reiniciar Timer: Reinicie o timer a qualquer momento clicando no botão "Reiniciar".
     Configurações Personalizáveis: Ajuste os tempos de trabalho e pausa conforme suas preferências usando a opção "Configurações".
 
+Pré-requisitos
+
+Certifique-se de ter o Python instalado em seu ambiente para executar este aplicativo.
+
 Como Usar
 
     Execute o script Python.
@@ -21,10 +25,12 @@ Configurações
     Minutos da Pausa Pequena: Tempo padrão é 5 minutos.
     Minutos da Pausa Longa: Tempo padrão é 20 minutos.
 
+Capturas de Tela
+
+![Captura de Tela 1](https://i.imgur.com/TBua27y.png)
+
 Contribuição
 
 Sinta-se à vontade para contribuir com melhorias, correções de bugs ou novas funcionalidades. Basta abrir uma issue ou enviar um pull request.
 
-Pré-requisitos
-
-Certifique-se de ter o Python instalado em seu ambiente para executar este aplicativo.
+Desenvolvido por [Emerson Jesus](https://github.com/EmersonJesus).
